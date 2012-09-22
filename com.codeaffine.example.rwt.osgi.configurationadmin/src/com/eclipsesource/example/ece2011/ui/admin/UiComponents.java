@@ -21,7 +21,7 @@ import java.util.Locale;
 import org.apache.felix.scr.Component;
 import org.apache.felix.scr.ScrService;
 import org.eclipse.equinox.http.jetty.JettyConstants;
-import org.eclipse.rwt.application.ApplicationConfigurator;
+import org.eclipse.rap.rwt.application.ApplicationConfiguration;
 import org.osgi.framework.BundleContext;
 import org.osgi.framework.InvalidSyntaxException;
 import org.osgi.framework.ServiceReference;
@@ -38,7 +38,7 @@ public class UiComponents {
     BundleContext bundleContext = DeploymentHelper.getBundleContext();
     Collection<ServiceReference<?>> serviceReferences = new ArrayList<ServiceReference<?>>();
     try {
-      serviceReferences.addAll( bundleContext.getServiceReferences( ApplicationConfigurator.class, null ) );
+      serviceReferences.addAll( bundleContext.getServiceReferences( ApplicationConfiguration.class, null ) );
       serviceReferences.addAll( bundleContext.getServiceReferences( UIContributorFactory.class, null ) );
     } catch( InvalidSyntaxException shouldNotHappen ) {
       throw new RuntimeException( shouldNotHappen );

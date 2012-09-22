@@ -1,7 +1,7 @@
 package com.codeaffine.example.rwt.osgi.configurationadmin.console;
 
-import org.eclipse.rwt.service.SessionStoreEvent;
-import org.eclipse.rwt.service.SessionStoreListener;
+import org.eclipse.rap.rwt.service.SessionStoreEvent;
+import org.eclipse.rap.rwt.service.SessionStoreListener;
 
 class ConsoleCloser implements SessionStoreListener {
 

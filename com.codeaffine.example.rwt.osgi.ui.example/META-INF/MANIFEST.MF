@@ -12,6 +12,6 @@ Import-Package: com.codeaffine.example.rwt.osgi.configurationadmin.console;versi
  javax.servlet.http;version="2.5.0",
  org.osgi.framework;version="1.3.0",
  org.osgi.util.tracker;version="1.5.0"
-Require-Bundle: org.eclipse.rap.rwt;bundle-version="1.5.0",
+Require-Bundle: org.eclipse.rap.rwt,
  org.eclipse.rap.rwt.supplemental.fileupload;bundle-version="1.5.0"
 Service-Component: OSGI-INF/Admin.xml, OSGI-INF/BundleUpload.xml, OSGI-INF/Console.xml, OSGI-INF/Presentation.xml, OSGI-INF/Slides.xml

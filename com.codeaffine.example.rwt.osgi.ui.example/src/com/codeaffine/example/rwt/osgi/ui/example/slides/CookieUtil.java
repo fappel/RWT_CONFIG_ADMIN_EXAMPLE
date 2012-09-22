@@ -3,7 +3,7 @@ package com.codeaffine.example.rwt.osgi.ui.example.slides;
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 
-import org.eclipse.rwt.RWT;
+import org.eclipse.rap.rwt.RWT;
 
 
 public class CookieUtil {

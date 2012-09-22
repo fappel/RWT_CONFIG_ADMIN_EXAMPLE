@@ -10,7 +10,7 @@
  ******************************************************************************/
 package com.codeaffine.example.rwt.osgi.ui.example.slides;
 
-import org.eclipse.rwt.lifecycle.WidgetUtil;
+import org.eclipse.rap.rwt.RWT;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.graphics.Point;
 import org.eclipse.swt.layout.FormAttachment;
@@ -43,7 +43,7 @@ public class Footer implements UIContributor {
     result.setLayout( new FormLayout() );
 
     Label separator = new Label( result, SWT.NONE );
-    separator.setData( WidgetUtil.CUSTOM_VARIANT, "footer_separator" );
+    separator.setData( RWT.CUSTOM_VARIANT, "footer_separator" );
     FormData separatorData = new FormData();
     separator.setLayoutData( separatorData );
     separatorData.top = new FormAttachment( 0, 0 );

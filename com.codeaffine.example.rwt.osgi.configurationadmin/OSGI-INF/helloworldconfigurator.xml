@@ -2,9 +2,9 @@
 <scr:component xmlns:scr="http://www.osgi.org/xmlns/scr/v1.1.0"
     configuration-policy="require"
     name="helloWorld">
-  <implementation class="com.codeaffine.example.rwt.osgi.configurationadmin.applications.HelloWorldApplicationConfigurator"/>
+  <implementation class="com.codeaffine.example.rwt.osgi.configurationadmin.applications.HelloWorldApplicationConfiguration"/>
   <service>
-    <provide interface="org.eclipse.rwt.application.ApplicationConfigurator"/>
+    <provide interface="org.eclipse.rap.rwt.application.ApplicationConfiguration"/>
   </service>
   <!--
   <property name="httpService.target" type="String" value="(http.port=80)"/>

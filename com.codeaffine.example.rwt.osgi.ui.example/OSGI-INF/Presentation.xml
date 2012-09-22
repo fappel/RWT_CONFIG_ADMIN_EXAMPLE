@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <scr:component xmlns:scr="http://www.osgi.org/xmlns/scr/v1.1.0" configuration-policy="require" name="Presentation">
-   <implementation class="com.codeaffine.example.rwt.osgi.ui.example.slides.PresentationConfigurator"/>
+   <implementation class="com.codeaffine.example.rwt.osgi.ui.example.slides.PresentationConfiguration"/>
    <service>
-      <provide interface="org.eclipse.rwt.application.ApplicationConfigurator"/>
+      <provide interface="org.eclipse.rap.rwt.application.ApplicationConfiguration"/>
    </service>
 </scr:component>

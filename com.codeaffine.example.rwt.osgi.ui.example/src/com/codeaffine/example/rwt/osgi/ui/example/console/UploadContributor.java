@@ -3,13 +3,13 @@ package com.codeaffine.example.rwt.osgi.ui.example.console;
 import java.io.IOException;
 import java.io.InputStream;
 
+import org.eclipse.rap.rwt.RWT;
 import org.eclipse.rap.rwt.supplemental.fileupload.FileUploadHandler;
 import org.eclipse.rap.rwt.supplemental.fileupload.FileUploadReceiver;
 import org.eclipse.rap.rwt.supplemental.fileupload.IFileUploadDetails;
-import org.eclipse.rwt.lifecycle.WidgetUtil;
-import org.eclipse.rwt.widgets.DialogCallback;
-import org.eclipse.rwt.widgets.DialogUtil;
-import org.eclipse.rwt.widgets.FileUpload;
+import org.eclipse.rap.rwt.widgets.DialogCallback;
+import org.eclipse.rap.rwt.widgets.DialogUtil;
+import org.eclipse.rap.rwt.widgets.FileUpload;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.events.SelectionAdapter;
 import org.eclipse.swt.events.SelectionEvent;
@@ -47,7 +47,7 @@ public class UploadContributor implements UIContributor {
   @Override
   public Control contribute( Composite parent ) {
     Composite result = new Composite( parent, SWT.NONE );
-    result.setData( WidgetUtil.CUSTOM_VARIANT, "upload-panel" );
+    result.setData( RWT.CUSTOM_VARIANT, "upload-panel" );
     result.setLayout( new FormLayout() );
     createContent( result );
     return result;
@@ -72,7 +72,7 @@ public class UploadContributor implements UIContributor {
 
   private void createSelectionLabel( Composite container ) {
     selectionLabel = new Label( container, SWT.NONE );
-    selectionLabel.setData( WidgetUtil.CUSTOM_VARIANT, "upload-selection" );
+    selectionLabel.setData( RWT.CUSTOM_VARIANT, "upload-selection" );
     selectionLabel.setText( "" );
     FormData selectionLabelData = new FormData();
     selectionLabel.setLayoutData( selectionLabelData );
@@ -86,7 +86,7 @@ public class UploadContributor implements UIContributor {
     uploadButton = new Button( container, SWT.PUSH );
     uploadButton.setText( "upload" );
     uploadButton.setEnabled( false );
-    uploadButton.setData( WidgetUtil.CUSTOM_VARIANT, "upload-button" );
+    uploadButton.setData( RWT.CUSTOM_VARIANT, "upload-button" );
     FormData uploadButtonData = new FormData();
     uploadButton.setLayoutData( uploadButtonData );
     uploadButtonData.left = new FormAttachment( selectionLabel, 5 );

@@ -10,7 +10,7 @@
  ******************************************************************************/
 package com.codeaffine.example.rwt.osgi.ui.example.apps;
 
-import org.eclipse.rwt.lifecycle.IEntryPoint;
+import org.eclipse.rap.rwt.lifecycle.IEntryPoint;
 import org.eclipse.swt.widgets.Shell;
 import org.osgi.framework.BundleContext;
 import org.osgi.framework.FrameworkUtil;

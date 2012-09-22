@@ -10,7 +10,7 @@
  ******************************************************************************/
 package com.codeaffine.example.rwt.osgi.ui.example.apps;
 
-import org.eclipse.rwt.lifecycle.WidgetUtil;
+import org.eclipse.rap.rwt.RWT;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Control;
@@ -30,7 +30,7 @@ public class BackgroundProvider implements UIContributor {
   @Override
   public Control contribute( Composite parent ) {
     Label result = new Label( parent, SWT.NONE );
-    result.setData( WidgetUtil.CUSTOM_VARIANT, "content-background" );
+    result.setData( RWT.CUSTOM_VARIANT, "content-background" );
     result.moveBelow( null );
     return result;
   }

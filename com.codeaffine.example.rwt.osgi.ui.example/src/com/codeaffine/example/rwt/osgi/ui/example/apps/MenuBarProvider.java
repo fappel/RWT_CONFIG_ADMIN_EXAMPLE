@@ -13,7 +13,7 @@ package com.codeaffine.example.rwt.osgi.ui.example.apps;
 import java.util.HashMap;
 import java.util.Map;
 
-import org.eclipse.rwt.lifecycle.WidgetUtil;
+import org.eclipse.rap.rwt.RWT;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.events.SelectionAdapter;
 import org.eclipse.swt.events.SelectionEvent;
@@ -48,7 +48,7 @@ public class MenuBarProvider implements UIContributor {
   @Override
   public Control contribute( Composite parent ) {
     final Composite result = new Composite( parent, SWT.INHERIT_DEFAULT );
-    result.setData( WidgetUtil.CUSTOM_VARIANT, MENUBAR_BACKGROUND );
+    result.setData( RWT.CUSTOM_VARIANT, MENUBAR_BACKGROUND );
     result.setLayout( new RowLayout() );
     
     final PageService pageService = serviceProvider.get( PageService.class );
@@ -75,7 +75,7 @@ public class MenuBarProvider implements UIContributor {
                            final String pageId )
   {
     Button result = new Button( parent, SWT.PUSH );
-    result.setData( WidgetUtil.CUSTOM_VARIANT, MENU_BUTTON );
+    result.setData( RWT.CUSTOM_VARIANT, MENU_BUTTON );
     result.setText( pageId );
     result.addSelectionListener( new SelectionAdapter() {
       private static final long serialVersionUID = 1L;

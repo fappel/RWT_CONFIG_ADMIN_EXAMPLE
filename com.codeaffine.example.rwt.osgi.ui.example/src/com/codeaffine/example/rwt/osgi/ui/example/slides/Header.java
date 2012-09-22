@@ -10,10 +10,14 @@
  ******************************************************************************/
 package com.codeaffine.example.rwt.osgi.ui.example.slides;
 
-import org.eclipse.rwt.lifecycle.WidgetUtil;
+import org.eclipse.rap.rwt.RWT;
 import org.eclipse.swt.SWT;
-import org.eclipse.swt.layout.*;
-import org.eclipse.swt.widgets.*;
+import org.eclipse.swt.layout.FormAttachment;
+import org.eclipse.swt.layout.FormData;
+import org.eclipse.swt.layout.FormLayout;
+import org.eclipse.swt.widgets.Composite;
+import org.eclipse.swt.widgets.Control;
+import org.eclipse.swt.widgets.Label;
 
 import com.codeaffine.example.rwt.osgi.ui.platform.UIContributor;
 
@@ -29,12 +33,12 @@ public class Header implements UIContributor {
   @Override
   public Control contribute( Composite parent ) {
     Composite result = new Composite( parent, SWT.INHERIT_DEFAULT );
-    result.setData( WidgetUtil.CUSTOM_VARIANT, "header" );
+    result.setData( RWT.CUSTOM_VARIANT, "header" );
     
     result.setLayout( new FormLayout() );
     
     Label logo = new Label( result, SWT.NONE );
-    logo.setData( WidgetUtil.CUSTOM_VARIANT, "logo" );
+    logo.setData( RWT.CUSTOM_VARIANT, "logo" );
     FormData logoData = new FormData();
     logo.setLayoutData( logoData );
     logoData.top = new FormAttachment( 0, 8 );
@@ -43,7 +47,7 @@ public class Header implements UIContributor {
     logoData.height = 61;
     
     Label appname = new Label( result, SWT.NONE );
-    appname.setData( WidgetUtil.CUSTOM_VARIANT, "appname" );
+    appname.setData( RWT.CUSTOM_VARIANT, "appname" );
     FormData appnameData = new FormData();
     appname.setLayoutData( appnameData );
     appnameData.top = new FormAttachment( 0, 10 );

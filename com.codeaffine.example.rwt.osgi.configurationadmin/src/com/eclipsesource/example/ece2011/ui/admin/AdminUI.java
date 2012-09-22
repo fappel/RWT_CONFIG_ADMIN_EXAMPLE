@@ -12,9 +12,9 @@ package com.eclipsesource.example.ece2011.ui.admin;
 
 import java.util.List;
 
-import org.eclipse.rwt.lifecycle.IEntryPoint;
-import org.eclipse.rwt.lifecycle.UICallBack;
-import org.eclipse.rwt.lifecycle.WidgetUtil;
+import org.eclipse.rap.rwt.RWT;
+import org.eclipse.rap.rwt.lifecycle.IEntryPoint;
+import org.eclipse.rap.rwt.lifecycle.UICallBack;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.events.DisposeEvent;
 import org.eclipse.swt.events.DisposeListener;
@@ -94,7 +94,7 @@ public class AdminUI implements IEntryPoint {
     frame.setLayout( createGridLayout() );
     Label headerLabel = new Label( frame, SWT.NONE );
     headerLabel.setText( "Deployed UI Contributions" );
-    headerLabel.setData( WidgetUtil.CUSTOM_VARIANT, "header" );
+    headerLabel.setData( RWT.CUSTOM_VARIANT, "header" );
     portsTabFolder = new TabFolder( frame, SWT.TOP );
     portsTabFolder.setLayoutData( new GridData( SWT.FILL, SWT.FILL, true, true ) );
     createTabItemsForPorts();
@@ -106,7 +106,7 @@ public class AdminUI implements IEntryPoint {
     frame.setLayout( createGridLayout() );
     Label headerLabel = new Label( frame, SWT.NONE );
     headerLabel.setText( "Available UI Contributions" );
-    headerLabel.setData( WidgetUtil.CUSTOM_VARIANT, "header" );
+    headerLabel.setData( RWT.CUSTOM_VARIANT, "header" );
     contributionsTree = createTree( frame, SWT.BORDER );
     contributionsTree.setLayoutData( new GridData( SWT.FILL, SWT.FILL, true, true ) );
     return frame;

@@ -1,6 +1,6 @@
 package com.codeaffine.example.rwt.osgi.ui.platform.internal;
 
-import org.eclipse.rwt.SessionSingletonBase;
+import org.eclipse.rap.rwt.SingletonUtil;
 
 import com.codeaffine.example.rwt.osgi.ui.platform.ServiceProvider;
 
@@ -18,6 +18,6 @@ public class SessionAwareServiceProvider implements ServiceProvider {
   }
   
   private ServiceProvider getProvider() {
-    return ( ServiceProvider )SessionSingletonBase.getInstance( ServiceProviderImpl.class );
+    return ( ServiceProvider )SingletonUtil.getSessionInstance( ServiceProviderImpl.class );
   }
 }

@@ -13,7 +13,7 @@ package com.eclipsesource.example.ece2011.ui.admin;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.eclipse.rwt.lifecycle.WidgetUtil;
+import org.eclipse.rap.rwt.RWT;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.events.ControlAdapter;
 import org.eclipse.swt.events.ControlEvent;
@@ -94,7 +94,9 @@ public class UiComponentDialog {
 
   private void fixShellResize() {
     shell.addControlListener( new ControlAdapter() {
-      @Override
+      private static final long serialVersionUID = 1L;
+
+	@Override
       public void controlResized( ControlEvent e ) {
         shell.pack();
       }
@@ -113,7 +115,7 @@ public class UiComponentDialog {
     header.setLayoutData( layoutData );
     Label iconLabel = new Label( header, SWT.CENTER );
     Label textLabel = new Label( header, SWT.CENTER );
-    textLabel.setData( WidgetUtil.CUSTOM_VARIANT, "header" );
+    textLabel.setData( RWT.CUSTOM_VARIANT, "header" );
     String text = isUndeploy ? "Undeploy " : "Deploy ";
     text += isApplication ? "Application" : "Contribution";
     textLabel.setText( text );
@@ -141,7 +143,9 @@ public class UiComponentDialog {
     portCombo.select( 0 );
     portCombo.setLayoutData( new GridData( 200, SWT.DEFAULT ) );
     portCombo.addSelectionListener( new SelectionAdapter() {
-      @Override
+      private static final long serialVersionUID = 1L;
+
+	@Override
       public void widgetSelected( SelectionEvent e ) {
         updateApplicationCombo();
       }
@@ -172,7 +176,9 @@ public class UiComponentDialog {
     Button button = new Button( buttonBar, SWT.PUSH );
     button.setText( "Cancel" );
     button.addSelectionListener( new SelectionAdapter() {
-      @Override
+      private static final long serialVersionUID = 1L;
+
+	@Override
       public void widgetSelected( SelectionEvent e ) {
         shell.close();
       }
@@ -184,7 +190,9 @@ public class UiComponentDialog {
     button.setText( "Deploy" );
     shell.setDefaultButton( button );
     button.addSelectionListener( new SelectionAdapter() {
-      @Override
+      private static final long serialVersionUID = 1L;
+
+	@Override
       public void widgetSelected( SelectionEvent e ) {
         String port = portCombo.getText();
         DeploymentHelper deploymentHelper = new DeploymentHelper();
@@ -204,7 +212,9 @@ public class UiComponentDialog {
     deployButton.setText( "Undeploy" );
     shell.setDefaultButton( deployButton );
     deployButton.addSelectionListener( new SelectionAdapter() {
-      @Override
+      private static final long serialVersionUID = 1L;
+
+	@Override
       public void widgetSelected( SelectionEvent e ) {
         DeploymentHelper deploymentHelper = new DeploymentHelper();
         if( isApplication ) {

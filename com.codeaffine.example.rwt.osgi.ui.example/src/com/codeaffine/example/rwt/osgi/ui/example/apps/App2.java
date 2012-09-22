@@ -10,22 +10,28 @@
  ******************************************************************************/
 package com.codeaffine.example.rwt.osgi.ui.example.apps;
 
-import org.eclipse.rwt.application.ApplicationConfiguration;
-import org.eclipse.rwt.application.ApplicationConfigurator;
+import java.util.HashMap;
+import java.util.Map;
+
+import org.eclipse.rap.rwt.application.Application;
+import org.eclipse.rap.rwt.application.ApplicationConfiguration;
+import org.eclipse.rap.rwt.client.WebClient;
 
 import com.codeaffine.example.rwt.osgi.ui.platform.ConfiguratorTracker;
 import com.codeaffine.example.rwt.osgi.ui.platform.ShellPositioner;
 
 
-public class App2 implements ApplicationConfigurator {
+public class App2 implements ApplicationConfiguration {
   static final String EXAMPLE_UI = "example";
   
   @Override
-  public void configure( ApplicationConfiguration configuration ) {
-    configuration.addEntryPoint( "default", UIEntryPoint.class );
-    configuration.addStyleSheet( EXAMPLE_UI, "themes/eclipsesource/theme.css" );
-    configuration.addBranding( new UIBranding() );
-    configuration.addPhaseListener( new ShellPositioner() );
-    new ConfiguratorTracker( this, configuration ).open();
+  public void configure( Application application ) {
+	Map<String,String> properties = new HashMap<String,String>();
+	properties.put( WebClient.THEME_ID, EXAMPLE_UI );
+	properties.put( WebClient.PAGE_TITLE, "Dynamic Duo" );
+    application.addEntryPoint( "/" + EXAMPLE_UI, UIEntryPoint.class, properties );
+    application.addStyleSheet( EXAMPLE_UI, "themes/eclipsesource/theme.css" );
+    application.addPhaseListener( new ShellPositioner() );
+    new ConfiguratorTracker( this, application ).open();
   }
 }

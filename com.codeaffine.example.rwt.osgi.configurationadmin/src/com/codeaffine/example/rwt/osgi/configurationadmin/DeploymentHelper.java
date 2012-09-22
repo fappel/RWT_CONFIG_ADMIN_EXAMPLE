@@ -13,8 +13,8 @@ import java.util.Dictionary;
 import java.util.Hashtable;
 
 import org.eclipse.equinox.http.jetty.JettyConstants;
+import org.eclipse.rap.rwt.application.ApplicationConfiguration;
 import org.eclipse.rap.rwt.osgi.ApplicationLauncher;
-import org.eclipse.rwt.application.ApplicationConfigurator;
 import org.osgi.framework.BundleContext;
 import org.osgi.framework.FrameworkUtil;
 import org.osgi.framework.ServiceReference;
@@ -49,10 +49,11 @@ public class DeploymentHelper {
     deleteConfiguration( createApplicationFilter( configurator, port, contextName ) );
   }
 
-  public void deployUIContribution( String contributor,
-                             String configurator,
-                             String port,
-                             String contextName )
+  @SuppressWarnings("unchecked")
+ public void deployUIContribution( String contributor,
+                                   String configurator,
+                                   String port,
+                                   String contextName )
   {
     try {
       Configuration configuration = createConfiguration( contributor );
@@ -113,7 +114,7 @@ public class DeploymentHelper {
   {
     Dictionary<String,Object> result = new Hashtable<String, Object>();
     result.put( createTargetKey( HttpService.class ), createPortFilter( port ) );
-    result.put( getConfiguratorKey(), key );
+    result.put( getConfigurationKey(), key );
     result.put( key, port );
     if( contextName != null ) {
       result.put( ApplicationLauncher.PROPERTY_CONTEXT_NAME, contextName );
@@ -131,7 +132,7 @@ public class DeploymentHelper {
     String value = createApplicationKey( configurator, port, contextName );
     Hashtable result = new Hashtable();
     result.put( key, value );
-    result.put( getConfiguratorKey(), value );
+    result.put( getConfigurationKey(), value );
     return result;
   }
 
@@ -151,8 +152,8 @@ public class DeploymentHelper {
     return result.toString();
   }
 
-  private static String getConfiguratorKey() {
-    return ApplicationConfigurator.class.getSimpleName();
+  private static String getConfigurationKey() {
+    return ApplicationConfiguration.class.getSimpleName();
   }
   
   private static String createPortFilter( String port ) {

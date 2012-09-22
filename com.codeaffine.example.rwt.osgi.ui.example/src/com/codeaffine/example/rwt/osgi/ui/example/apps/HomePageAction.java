@@ -10,8 +10,8 @@
  ******************************************************************************/
 package com.codeaffine.example.rwt.osgi.ui.example.apps;
 
-import org.eclipse.rwt.widgets.DialogCallback;
-import org.eclipse.rwt.widgets.DialogUtil;
+import org.eclipse.rap.rwt.widgets.DialogCallback;
+import org.eclipse.rap.rwt.widgets.DialogUtil;
 import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.MessageBox;
 

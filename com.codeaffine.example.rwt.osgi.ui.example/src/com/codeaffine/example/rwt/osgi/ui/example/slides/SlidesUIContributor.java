@@ -1,11 +1,11 @@
 package com.codeaffine.example.rwt.osgi.ui.example.slides;
 
+import static org.eclipse.rap.rwt.application.ApplicationConfiguration.RESOURCE_ROOT_LOCATION;
+
 import javax.servlet.http.Cookie;
 
-import org.eclipse.rwt.RWT;
-import org.eclipse.rwt.application.Application;
-import org.eclipse.rwt.lifecycle.WidgetUtil;
-import org.eclipse.rwt.resources.IResourceManager.RegisterOptions;
+import org.eclipse.rap.rwt.RWT;
+import org.eclipse.rap.rwt.resources.IResourceManager.RegisterOptions;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.browser.Browser;
 import org.eclipse.swt.events.DisposeEvent;
@@ -145,7 +145,7 @@ public class SlidesUIContributor implements UIContributor {
     RowLayout layout = new RowLayout();
     layout.marginTop = 10;
     result.setLayout( layout );
-    result.setData( WidgetUtil.CUSTOM_VARIANT, "navigation" );
+    result.setData( RWT.CUSTOM_VARIANT, "navigation" );
     result.moveAbove( null );
     return result;
   }
@@ -159,7 +159,7 @@ public class SlidesUIContributor implements UIContributor {
   private void createForwardButton( Composite navigation ) {
     Button forward = new Button( navigation, SWT.PUSH );
     forward.setText( "+" );
-    forward.setData( WidgetUtil.CUSTOM_VARIANT, "slide_navigation_forward" );
+    forward.setData( RWT.CUSTOM_VARIANT, "slide_navigation_forward" );
     forward.addSelectionListener( new SelectionAdapter() {
 
       private static final long serialVersionUID = 1L;
@@ -174,13 +174,13 @@ public class SlidesUIContributor implements UIContributor {
   private void createCounterLabel( Composite navigation ) {
     counter = new Label( navigation, SWT.NONE );
     updateCounterLabel();
-    counter.setData( WidgetUtil.CUSTOM_VARIANT, "slide_counter" );
+    counter.setData( RWT.CUSTOM_VARIANT, "slide_counter" );
   }
 
   private void createBackButton( Composite navigation ) {
     final Button back = new Button( navigation, SWT.PUSH );
     back.setText( "-" );
-    back.setData( WidgetUtil.CUSTOM_VARIANT, "slide_navigation_back" );
+    back.setData( RWT.CUSTOM_VARIANT, "slide_navigation_back" );
     back.addSelectionListener( new SelectionAdapter() {
 
       private static final long serialVersionUID = 1L;
@@ -250,7 +250,7 @@ public class SlidesUIContributor implements UIContributor {
         getHTMLSnippet( registerImage( "dynamic.png" ) ),
         getHTMLSnippet( registerImage( "twitter.png" ) ),
         getHTMLSnippet( registerImage( "munsters.png" ) ),
-        "http://localhost:" + localPort + "/" + Application.RESOURCES + chartPage,
+        "http://localhost:" + localPort + "/" + RESOURCE_ROOT_LOCATION + chartPage,
         getHTMLSnippet( registerImage( "resources.png" ) )
       };
     }
@@ -262,9 +262,9 @@ public class SlidesUIContributor implements UIContributor {
   }
 
   private String registerImage( String name ) {
-    String result = "/" + Application.RESOURCES + "/" + name;
+    String result = "/" + RESOURCE_ROOT_LOCATION + "/" + name;
     if( name.startsWith( "/" ) ) {
-      result = "/" + Application.RESOURCES + name;
+      result = "/" + RESOURCE_ROOT_LOCATION + name;
     }
     RWT.getResourceManager().register( name, getClass().getResourceAsStream( name ) );
     return result;
